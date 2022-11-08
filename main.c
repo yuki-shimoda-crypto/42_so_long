@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/08 21:27:51 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:21:15 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(int argc, char const *argv[])
 	int		fd;
 	char	buf[5];
 	ssize_t	byte_read;
+	char	**map;
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
