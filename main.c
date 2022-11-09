@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/08 22:21:15 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/09 22:36:16 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,18 @@
 
 int main(int argc, char const *argv[])
 {
-	int		fd;
-	char	buf[5];
-	ssize_t	byte_read;
-	char	**map;
+	t_map	*map;
+	t_map	*tmp;
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		return (1);
-	byte_read = read(fd, buf, 5);
-	if (byte_read == -1)
+	map = read_map(argc, argv);
+	tmp = map;
+	while (tmp)
 	{
-		close(fd);
-		return (1);
+		printf("%lld\n", tmp->len_line);
+		printf("%s", tmp->line);
+		// printf("%s\n", "-----------");
+		tmp = tmp->next;
 	}
-	printf("%s\n", buf);
-	close(fd);
+	lst_map_clear(&map);
 	return (0);
 }
