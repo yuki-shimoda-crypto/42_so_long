@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/09 22:36:16 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:26:53 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,24 @@ int main(int argc, char const *argv[])
 	while (tmp)
 	{
 		printf("%lld\n", tmp->len_line);
-		printf("%s", tmp->line);
+		// printf("%s", tmp->line);
 		// printf("%s\n", "-----------");
 		tmp = tmp->next;
 	}
 	lst_map_clear(&map);
 	return (0);
 }
+
+// #include <string.h>
+// int main(void)
+// {
+// 	// char	line[] = "11111\n";
+// 	// char	*newline = ft_strchr(line, '\n');
+
+// 	// printf("%s\n", newline);
+// 	// printf("%s\n", "variable");
+// 	// *newline = '\0';
+// 	printf("%s\n", ft_strchr(NULL, '\n'));
+// 	printf("%s\n", strchr("", '\n'));
+// 	return 0;
+// }

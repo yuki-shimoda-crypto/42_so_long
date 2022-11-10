@@ -6,13 +6,14 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/09 22:19:44 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/10 16:21:32 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
+# CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 
 SRCS		=	error_func.c		\
 				read_map_utils.c	\

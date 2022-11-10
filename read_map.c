@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:22:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/09 22:38:49 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:38:07 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_map	*read_map(int argc, char const **argv)
 {
 	int		fd;
+	int		i;
 	char	*line;
-	char	*;
 	t_map	*map;
 	t_map	*next;
 
@@ -30,6 +30,11 @@ t_map	*read_map(int argc, char const **argv)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		i = 0;
+		while (line[i] != '\n' && line[i] != '\0')
+			i++;
+		if (line[i] == '\n')
+			line[i] = '\0';
 		next = lst_map_new(line);
 		if (!next)
 		{

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:49:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/09 15:00:18 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:04:41 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	error_func(const char *str)
 {
 	ft_printf("%s\n", str);
 	exit(1);
+	return ;
 }
