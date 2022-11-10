@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:22:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 17:58:36 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/11 02:46:10 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static t_map	*input_lst(int fd)
 	t_map	*map;
 	t_map	*next;
 
+	map = NULL;
 	while (1)
 	{
 		line = get_next_line(fd);

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:01:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 19:07:31 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/11 02:18:50 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ t_data	*init_data(t_map *map)
 	data->c_c = 0;
 	data->c_e = 0;
 	data->c_p = 0;
-	return (0);
+	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 19:00:30 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/11 02:00:10 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-# include <mlx.h>
+// # include <mlx.h>
 # include "libft.h"
 
 typedef struct s_data
@@ -41,6 +41,8 @@ typedef struct s_map
 t_data	*check_map(t_map *map, char const *filename);
 void	error_func(const char *str);
 void	error_func_map_free(const char *str, t_map *map);
+void	error_func_data_free(const char *str, t_data *data);
+t_data	*init_data(t_map *map);
 t_map	*lst_map_new(char *str);
 void	lst_map_addback(t_map **map, t_map *next);
 t_map	*lst_map_last(t_map *map);

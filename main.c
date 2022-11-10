@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 18:59:32 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/11 02:35:35 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,25 @@
 int	main(int argc, char const *argv[])
 {
 	t_map	*map;
-	t_data	*data;
+	// t_data	*data;
 
 	map = read_map(argc, argv);
-	data = check_map(map, argv[1]);
+	printf("%p\n", map);
+	// data = check_map(map, argv[1]);
+	check_map(map, argv[1]);
 	lst_map_clear(&map);
 	return (0);
 }
 
-__attribute__((destructor)) static void destructor()
-{
-	system("leaks -q so_long");
-}
+// __attribute__((destructor)) static void destructor()
+// {
+// 	system("leaks -q so_long");
+// }
+
+// __attribute__((destructor)) static void destructor()
+// {
+// 	system("valgrind so_long");
+// }
 
 // int	main(int argc, char const *argv[])
 // {

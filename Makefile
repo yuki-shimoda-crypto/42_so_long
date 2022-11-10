@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/10 18:36:17 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/11 02:11:31 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS		=	-Wall -Wextra -Werror
 # CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 
 SRCS		=	check_map.c			\
+				check_map_utils.c	\
 				error_func.c		\
 				main.c				\
 				lst_map_func.c		\
