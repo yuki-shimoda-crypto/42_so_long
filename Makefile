@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/10 16:21:32 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/10 18:36:17 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,20 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 # CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 
-SRCS		=	error_func.c		\
-				read_map_utils.c	\
+SRCS		=	check_map.c			\
+				error_func.c		\
 				main.c				\
+				lst_map_func.c		\
 				read_map.c
 
-OBJS		=	$(SRCS:.c=.o)
+OBJS		=	$(SRCS:%.c=$(OBJDIR)/%.o)
+OBJDIR		=	objs
 
 LIBFT_DIR	=	libft
 INCLUDE		=	include
 
-.c.o:
+$(OBJDIR)/%.o:%.c
+			@mkdir -p $(@D);
 			$(CC) -c $< -o $@ $(CFLAGS) -I $(INCLUDE)
 
 all:		$(NAME)
@@ -36,7 +39,7 @@ $(NAME):	$(OBJS)
 
 clean:		
 			make fclean -C $(LIBFT_DIR)
-			$(RM) $(OBJS)
+			$(RM) -r $(OBJDIR)
 
 fclean:		clean
 			$(RM) $(NAME)

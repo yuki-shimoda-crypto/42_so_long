@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_func.c                                       :+:      :+:    :+:   */
+/*   check_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 14:49:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 17:57:55 by yshimoda         ###   ########.fr       */
+/*   Created: 2022/11/10 19:01:50 by yshimoda          #+#    #+#             */
+/*   Updated: 2022/11/10 19:07:31 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error_func(const char *str)
+t_data	*init_data(t_map *map)
 {
-	ft_printf("%s\n", str);
-	exit(1);
-	return ;
-}
+	t_data	*data;
 
-void	error_func_map_free(const char *str, t_map *map)
-{
-	lst_map_clear(&map);
-	ft_printf("%s\n", str);
-	exit(1);
-	return ;
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (NULL);
+	data->map = map;
+	data->c_zero = 0;
+	data->c_one = 0;
+	data->c_c = 0;
+	data->c_e = 0;
+	data->c_p = 0;
+	return (0);
 }

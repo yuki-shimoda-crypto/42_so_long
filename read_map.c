@@ -6,25 +6,19 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:22:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 16:38:07 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:58:36 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_map	*read_map(int argc, char const **argv)
+static t_map	*input_lst(int fd)
 {
-	int		fd;
-	int		i;
 	char	*line;
+	size_t	i;
 	t_map	*map;
 	t_map	*next;
 
-	if (argc != 2)
-		error_func("arg error");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		error_func("open error");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -37,12 +31,23 @@ t_map	*read_map(int argc, char const **argv)
 			line[i] = '\0';
 		next = lst_map_new(line);
 		if (!next)
-		{
-			lst_map_clear(&map);
-			error_func("malloc error");
-		}
+			error_func_map_free("malloc error", map);
 		lst_map_addback(&map, next);
 	}
+	return (map);
+}
+
+t_map	*read_map(int argc, char const **argv)
+{
+	int		fd;
+	t_map	*map;
+
+	if (argc != 2)
+		error_func("arg error");
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		error_func("open error");
+	map = input_lst(fd);
 	close(fd);
 	return (map);
 }

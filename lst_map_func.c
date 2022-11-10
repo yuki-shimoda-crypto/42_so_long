@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_map_utils.c                                    :+:      :+:    :+:   */
+/*   lst_map_func.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:20:16 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/09 21:28:14 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:51:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+size_t	lst_map_size(t_map *map)
+{
+	size_t	i;
+
+	i = 0;
+	while (map)
+	{
+		map = map->next;
+		i++;
+	}
+	return (i);
+}
 
 void	lst_map_clear(t_map **map)
 {
