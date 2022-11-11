@@ -13,7 +13,7 @@
 	- at least one C
 - check_rect
 - check_surrounded_walls
-- check_isvalid_path
+- check_valid_path
 
 
 

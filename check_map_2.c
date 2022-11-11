@@ -6,11 +6,16 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 01:04:48 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/12 01:19:01 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/12 01:33:00 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_valid_path(t_data *data, t_map *map)
+{
+
+}
 
 void	check_surrounded_walls(t_data *data, t_map *map)
 {
