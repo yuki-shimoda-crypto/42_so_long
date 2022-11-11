@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/11 02:00:10 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/12 01:19:41 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ typedef struct s_data
 typedef struct s_map
 {
 	char			*line;
-	long long		len_line;
+	size_t			len_line;
 	struct s_map	*next;
 }			t_map;
 
 t_data	*check_map(t_map *map, char const *filename);
+void	check_surrounded_walls(t_data *data, t_map *map);
 void	error_func(const char *str);
 void	error_func_map_free(const char *str, t_map *map);
 void	error_func_data_free(const char *str, t_data *data);

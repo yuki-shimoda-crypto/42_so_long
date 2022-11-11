@@ -1,6 +1,5 @@
 # so_long
 
-
 ## flow
 1. read_map
 1. check_map
@@ -15,3 +14,8 @@
 - check_rect
 - check_surrounded_walls
 - check_isvalid_path
+
+
+
+error 出力2
+f_map_09弾けない

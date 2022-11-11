@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:22:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/11 02:46:10 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/11 23:55:27 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ t_map	*read_map(int argc, char const **argv)
 		error_func("open error");
 	map = input_lst(fd);
 	close(fd);
+	if (!map)
+		error_func("blank map, malloc error or read error");
 	return (map);
 }
