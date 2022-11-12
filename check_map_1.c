@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:53:09 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/12 01:23:06 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/12 11:29: by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ static void	count_component(t_data *data, t_map *map)
 		while (map->line[i])
 		{
 			if (map->line[i] == '0')
-				data->c_zero = data->c_zero + 1;
+				data->num_zero = data->num_zero + 1;
 			else if (map->line[i] == '1')
-				data->c_one = data->c_one + 1;
+				data->num_one = data->num_one + 1;
 			else if (map->line[i] == 'C')
-				data->c_c = data->c_c + 1;
+				data->num_c = data->num_c + 1;
 			else if (map->line[i] == 'E')
-				data->c_e = data->c_e + 1;
+				data->num_e = data->num_e + 1;
 			else if (map->line[i] == 'P')
-				data->c_p = data->c_p + 1;
+				data->num_p = data->num_p + 1;
 			else
 				error_func_data_free("map component error", data);
 			i++;
@@ -59,13 +59,13 @@ static void	count_component(t_data *data, t_map *map)
 static void	check_component(t_data *data)
 {
 	count_component(data, data->map);
-	if (data->c_e != 1 || data->c_p != 1 || data->c_c < 1)
+	if (data->num_e != 1 || data->num_p != 1 || data->num_c < 1)
 	{
-		printf("%lld\n", data->c_zero);
-		printf("%lld\n", data->c_one);
-		printf("%lld\n", data->c_c);
-		printf("%lld\n", data->c_e);
-		printf("%lld\n", data->c_p);
+		printf("%lld\n", data->num_zero);
+		printf("%lld\n", data->num_one);
+		printf("%lld\n", data->num_c);
+		printf("%lld\n", data->num_e);
+		printf("%lld\n", data->num_p);
 		error_func_data_free("map component error", data);
 	}
 	return ;
@@ -100,11 +100,16 @@ t_data	*check_map(t_map *map, char const *filename)
 	check_component(data);
 	check_rect(data, data->map);
 	check_surrounded_walls(data, data->map);
-	printf("%lld\n", data->c_zero);
-	printf("%lld\n", data->c_one);
-	printf("%lld\n", data->c_c);
-	printf("%lld\n", data->c_e);
-	printf("%lld\n", data->c_p);
+	check_valid_path(data, data->map);
+	printf("num_zero\t= %lld\n", data->num_zero);
+	printf("num_one\t\t= %lld\n", data->num_one);
+	printf("num_c\t\t= %lld\n", data->num_c);
+	printf("num_e\t\t= %lld\n", data->num_e);
+	printf("num_p\t\t= %lld\n", data->num_p);
+	printf("start_x\t\t= %lld\n", data->start_x);
+	printf("start_y\t\t= %lld\n", data->start_y);
+	t_map	*tmp = move_map_raw(data->map, data->start_y);
+	printf("%c\n", tmp->line[data->start_x]);
 	printf("%s\n", "OK");
 	return (data);
 }

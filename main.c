@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/12 01:01:45 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/12 10:20:42 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,13 @@ int	main(int argc, char const *argv[])
 // 	tmp = map;
 // 	while (tmp)
 // 	{
-// 		printf("%s\n", tmp->line);
+// 		// printf("%s\n", tmp->line);
+// 		printf("pre  = %p\n", tmp->pre);
+// 		printf("now  = %p\n", tmp);
+// 		printf("next = %p\n", tmp->next);
+// 		printf("%s\n\n", "------------");
 // 		tmp = tmp->next;
 // 	}
-// 	check_map(map, argv[1]);
 // 	lst_map_clear(&map);
 // 	return (0);
 // }

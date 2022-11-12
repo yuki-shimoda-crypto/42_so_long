@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 01:04:48 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/12 01:33:00 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/12 11:27:56 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	check_valid_path(t_data *data, t_map *map)
 {
-
+	find_start(data, map);
+	return ;
 }
 
 void	check_surrounded_walls(t_data *data, t_map *map)

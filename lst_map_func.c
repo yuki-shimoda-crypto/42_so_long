@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:20:16 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/10 18:51:18 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/12 10:00:17 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	lst_map_addback(t_map **map, t_map *next)
 	}
 	last = lst_map_last(*map);
 	last->next = next;
+	next->pre = last;
 	return ;
 }
 
@@ -75,6 +76,7 @@ t_map	*lst_map_new(char *str)
 	if (!map)
 		return (NULL);
 	map->line = str;
+	map->pre = NULL;
 	map->next = NULL;
 	map->len_line = ft_strlen(str);
 	return (map);
