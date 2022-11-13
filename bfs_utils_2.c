@@ -6,22 +6,22 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:10:03 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 01:31:33 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 02:12:33 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	bfs_free(t_bfs **bfs)
+void	bfs_free(t_bfs *bfs)
 {
-	free((*bfs)->bfs_map);
-	lst_queue_clear(&(*bfs)->bfs_queue);
-	free(*bfs);
-	*bfs = NULL;
+	free(bfs->bfs_map);
+	lst_queue_clear(&bfs->bfs_queue);
+	free(bfs);
 	return ;
 }
 
-void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y)
+void	bfs_write_one_add_que(t_bfs *bfs, t_data *data,
+		long long x, long long y)
 {
 	t_queue	*queue_next;
 	t_map	*map_tmp;
@@ -31,13 +31,10 @@ void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y)
 	if (map_tmp->line[x] == 'C')
 		bfs->bfs_num_c -= 1;
 	if (map_tmp->line[x] == 'E')
-		bfs->bfs_num_c -= 1;
+		bfs->bfs_num_e -= 1;
 	queue_next = lst_queue_new(x, y);
 	if (!queue_next)
-	{
-		bfs_free(&bfs);
-		error_func_data_free("malloc error", data);
-	}
+		error_func_data_bfs_free("malloc error", data, bfs);
 	lst_queue_enqueue(&bfs->bfs_queue, queue_next);
 	return ;
 }

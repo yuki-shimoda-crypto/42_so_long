@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:49:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/11 01:21:17 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 02:08:27 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ void	error_func_data_free(const char *str, t_data *data)
 	free(data);
 	ft_printf("%s\n", str);
 	exit(1);
+	return ;
+}
+
+void	error_func_data_bfs_free(const char *str, t_data *data, t_bfs *bfs)
+{
+	bfs_free(bfs);
+	error_func_data_free(str, data);
 	return ;
 }

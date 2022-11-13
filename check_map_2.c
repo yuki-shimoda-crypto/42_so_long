@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 14:30:55 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 01:38:11 yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 02:14:58 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	search_valid_path(t_data *data, t_map *map)
 	t_bfs		*bfs;
 	t_queue		*queue;
 	size_t		len_col;
-	size_t		len_row;
 
 	bfs_init(data, &bfs);
 	len_col = ft_strlen(map->line);
-	len_row = lst_map_size(map);
 	while (bfs->bfs_queue)
 	{
 		queue = bfs->bfs_queue;
@@ -35,19 +33,11 @@ void	search_valid_path(t_data *data, t_map *map)
 			bfs_write_one_add_que(bfs, data, queue->x - 1, queue->y);
 		lst_queue_dequeue(&bfs->bfs_queue);
 	}
-	size_t		i = 0;
-	size_t		j = 0;
-	while (i < len_row)
-	{
-		j = 0;
-		while (j < len_col)
-		{
-			printf("%d", bfs->bfs_map[len_col * i + j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
+	if (bfs->bfs_num_e != 0)
+		error_func_data_bfs_free("Error, not exist valid path", data, bfs);
+	if (bfs->bfs_num_c != 0)
+		error_func_data_bfs_free("Error, cannot	collect c", data, bfs);
+	bfs_free(bfs);
 	return ;
 }
 

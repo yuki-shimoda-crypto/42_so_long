@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 00:55:55 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 02:13:56 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,16 @@ bool	bfs_can_move_up(t_bfs *bfs, t_map *map, size_t len_col);
 bool	bfs_can_move_down(t_bfs *bfs, t_map *map, size_t len_col);
 bool	bfs_can_move_right(t_bfs *bfs, t_map *map, size_t len_col);
 bool	bfs_can_move_left(t_bfs *bfs, t_map *map, size_t len_col);
-void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y);
+void	bfs_free(t_bfs *bfs);
+void	bfs_write_one_add_que(t_bfs *bfs, t_data *data,
+			long long x, long long y);
 t_data	*check_map(t_map *map, char const *filename);
 void	check_surrounded_walls(t_data *data, t_map *map);
 void	check_valid_path(t_data *data, t_map *map);
 void	error_func(const char *str);
 void	error_func_map_free(const char *str, t_map *map);
 void	error_func_data_free(const char *str, t_data *data);
+void	error_func_data_bfs_free(const char *str, t_data *data, t_bfs *bfs);
 void	find_start(t_data *data, t_map *map);
 t_data	*init_data(t_map *map);
 t_map	*lst_map_new(char *str);
@@ -84,5 +87,5 @@ t_queue	*lst_queue_new(long long x, long long y);
 t_map	*move_map_row(t_map *map, long long y);
 t_map	*read_map(int argc, char const **argv);
 
-size_t	lst_queue_size(t_queue *queue);
+// size_t	lst_queue_size(t_queue *queue);
 #endif
