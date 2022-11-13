@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/13 15:17:24 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:31:20 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 typedef struct s_data
 {
 	struct s_map	*map;
-	struct t_queue	*queue;
 	long long		num_zero;
 	long long		num_one;
 	long long		num_c;
