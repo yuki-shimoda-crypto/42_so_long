@@ -108,7 +108,7 @@ t_data	*check_map(t_map *map, char const *filename)
 	printf("num_p\t\t= %lld\n", data->num_p);
 	printf("start_x\t\t= %lld\n", data->start_x);
 	printf("start_y\t\t= %lld\n", data->start_y);
-	t_map	*tmp = move_map_raw(data->map, data->start_y);
+	t_map	*tmp = move_map_row(data->map, data->start_y);
 	printf("%c\n", tmp->line[data->start_x]);
 	printf("%s\n", "OK");
 	return (data);

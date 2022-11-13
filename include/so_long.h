@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/12 11:42:51 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:17:24 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_data
 {
 	struct s_map	*map;
+	struct t_queue	*queue;
 	long long		num_zero;
 	long long		num_one;
 	long long		num_c;
@@ -41,6 +42,24 @@ typedef struct s_map
 	struct s_map	*next;
 }			t_map;
 
+typedef struct s_bfs
+{
+	long long		bfs_num_c;
+	long long		bfs_num_e;
+	int				*bfs_map;
+	struct s_queue	*bfs_queue;
+}			t_bfs;
+
+typedef struct s_queue
+{
+	long long		x;
+	long long		y;
+	struct s_queue	*next;
+}			t_queue;
+
+// void	bfs_init(t_data *data,
+// 			long long *bfs_num_c, int **bfs_map, t_queue **bfs_queue);
+void	bfs_init(t_data *data, t_bfs **bfs);
 t_data	*check_map(t_map *map, char const *filename);
 void	check_surrounded_walls(t_data *data, t_map *map);
 void	check_valid_path(t_data *data, t_map *map);
@@ -54,7 +73,10 @@ void	lst_map_addback(t_map **map, t_map *next);
 t_map	*lst_map_last(t_map *map);
 void	lst_map_clear(t_map **map);
 size_t	lst_map_size(t_map *map);
-t_map	*move_map_raw(t_map *map, long long y);
+void	lst_queue_addback(t_queue **queue, t_queue *next);
+t_queue	*lst_queue_last(t_queue *queue);
+t_queue	*lst_queue_new(long long x, long long y);
+t_map	*move_map_row(t_map *map, long long y);
 t_map	*read_map(int argc, char const **argv);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/12 01:06:40 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/13 14:46:30 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ CFLAGS		=	-Wall -Wextra -Werror
 # CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 
 SRCS		=	check_map_1.c		\
-				check_map_2.c	\
+				check_map_2.c		\
 				check_map_utils.c	\
 				error_func.c		\
 				main.c				\
 				lst_map_func.c		\
+				lst_queue_func.c	\
 				read_map.c
 
 OBJS		=	$(SRCS:%.c=$(OBJDIR)/%.o)
