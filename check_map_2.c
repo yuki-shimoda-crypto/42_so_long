@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 14:30:55 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 01:30:57 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 01:38:11 yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	search_valid_path(t_data *data, t_map *map)
 {
 	t_bfs		*bfs;
+	t_queue		*queue;
 	size_t		len_col;
 	size_t		len_row;
 
@@ -23,29 +24,16 @@ void	search_valid_path(t_data *data, t_map *map)
 	len_row = lst_map_size(map);
 	while (bfs->bfs_queue)
 	{
+		queue = bfs->bfs_queue;
 		if (bfs_can_move_up(bfs, map, len_col))
-			bfs_write_one_add_que(bfs, data, bfs->bfs_queue->x, bfs->bfs_queue->y - 1);
+			bfs_write_one_add_que(bfs, data, queue->x, queue->y - 1);
 		if (bfs_can_move_down(bfs, map, len_col))
-			bfs_write_one_add_que(bfs, data, bfs->bfs_queue->x, bfs->bfs_queue->y + 1);
+			bfs_write_one_add_que(bfs, data, queue->x, queue->y + 1);
 		if (bfs_can_move_right(bfs, map, len_col))
-			bfs_write_one_add_que(bfs, data, bfs->bfs_queue->x + 1, bfs->bfs_queue->y);
+			bfs_write_one_add_que(bfs, data, queue->x + 1, queue->y);
 		if (bfs_can_move_left(bfs, map, len_col))
-			bfs_write_one_add_que(bfs, data, bfs->bfs_queue->x - 1, bfs->bfs_queue->y);
+			bfs_write_one_add_que(bfs, data, queue->x - 1, queue->y);
 		lst_queue_dequeue(&bfs->bfs_queue);
-		size_t		i = 0;
-		size_t		j = 0;
-		while (i < len_row)
-		{
-			j = 0;
-			while (j < len_col)
-			{
-				printf("%d", bfs->bfs_map[len_col * i + j]);
-				j++;
-			}
-			printf("\n");
-			i++;
-		}
-			printf("\n");
 	}
 	size_t		i = 0;
 	size_t		j = 0;

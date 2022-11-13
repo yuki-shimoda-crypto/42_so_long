@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:10:03 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 01:25:28 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 01:31:33 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y)
 	t_queue	*queue_next;
 	t_map	*map_tmp;
 
-	printf("%s\n\n", "variable");
-	printf("%s\n", "---------------------------------------------------------");
-	printf("%lld\n", x);
-	printf("%lld\n", y);
-	printf("%s\n\n", "---------------------------------------------------------");
 	bfs->bfs_map[ft_strlen(data->map->line) * y + x] = 1;
 	map_tmp = move_map_row(data->map, y);
 	if (map_tmp->line[x] == 'C')
@@ -43,8 +38,6 @@ void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y)
 		bfs_free(&bfs);
 		error_func_data_free("malloc error", data);
 	}
-	printf("queue_next->x = %lld\n", queue_next->x);
-	printf("queue_next->y = %lld\n", queue_next->y);
 	lst_queue_enqueue(&bfs->bfs_queue, queue_next);
 	return ;
 }
