@@ -6,16 +6,19 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/13 14:46:30 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/14 01:11:55 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 CC			=	cc
+# CC			=	clang
 CFLAGS		=	-Wall -Wextra -Werror
 # CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 
-SRCS		=	check_map_1.c		\
+SRCS		=	bfs_utils_1.c		\
+				bfs_utils_2.c		\
+				check_map_1.c		\
 				check_map_2.c		\
 				check_map_utils.c	\
 				error_func.c		\

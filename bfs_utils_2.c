@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bfs_utils_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 18:10:03 by yshimoda          #+#    #+#             */
+/*   Updated: 2022/11/14 01:25:28 by yshimoda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+void	bfs_free(t_bfs **bfs)
+{
+	free((*bfs)->bfs_map);
+	lst_queue_clear(&(*bfs)->bfs_queue);
+	free(*bfs);
+	*bfs = NULL;
+	return ;
+}
+
+void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y)
+{
+	t_queue	*queue_next;
+	t_map	*map_tmp;
+
+	printf("%s\n\n", "variable");
+	printf("%s\n", "---------------------------------------------------------");
+	printf("%lld\n", x);
+	printf("%lld\n", y);
+	printf("%s\n\n", "---------------------------------------------------------");
+	bfs->bfs_map[ft_strlen(data->map->line) * y + x] = 1;
+	map_tmp = move_map_row(data->map, y);
+	if (map_tmp->line[x] == 'C')
+		bfs->bfs_num_c -= 1;
+	if (map_tmp->line[x] == 'E')
+		bfs->bfs_num_c -= 1;
+	queue_next = lst_queue_new(x, y);
+	if (!queue_next)
+	{
+		bfs_free(&bfs);
+		error_func_data_free("malloc error", data);
+	}
+	printf("queue_next->x = %lld\n", queue_next->x);
+	printf("queue_next->y = %lld\n", queue_next->y);
+	lst_queue_enqueue(&bfs->bfs_queue, queue_next);
+	return ;
+}

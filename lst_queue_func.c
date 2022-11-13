@@ -6,11 +6,26 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 20:11:44 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/13 14:46:50 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:46:50y yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	lst_queue_clear(t_queue **queue)
+{
+	t_queue	*tmp;
+
+	if (!queue || !*queue)
+		return ;
+	while (*queue)
+	{
+		tmp = (*queue)->next;
+		free(*queue);
+		*queue = tmp;
+	}
+	return ;
+}
 
 t_queue	*lst_queue_last(t_queue *queue)
 {
@@ -21,7 +36,19 @@ t_queue	*lst_queue_last(t_queue *queue)
 	return (queue);
 }
 
-void	lst_queue_addback(t_queue **queue, t_queue *next)
+void	lst_queue_dequeue(t_queue **queue)
+{
+	t_queue	*tmp;
+
+	if (!queue || !*queue)
+		return ;
+	tmp = (*queue)->next;
+	free(*queue);
+	*queue = tmp;
+	return ;
+}
+
+void	lst_queue_enqueue(t_queue **queue, t_queue *next)
 {
 	t_queue	*last;
 
@@ -48,4 +75,18 @@ t_queue	*lst_queue_new(long long x, long long y)
 	queue->y = y;
 	queue->next = NULL;
 	return (queue);
+}
+
+
+size_t	lst_queue_size(t_queue *queue)
+{
+	size_t	i;
+
+	i = 0;
+	while (queue)
+	{
+		i++;
+		queue = queue->next;
+	}
+	return (i);
 }

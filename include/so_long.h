@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/13 16:55:48 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 00:55:55 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdlib.h>
+# include <stdbool.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <math.h>
 // # include <mlx.h>
 # include "libft.h"
@@ -46,7 +47,6 @@ typedef struct s_bfs
 	long long		bfs_num_c;
 	long long		bfs_num_e;
 	int				*bfs_map;
-	// char			**bfs_map;
 	struct s_queue	*bfs_queue;
 }			t_bfs;
 
@@ -58,6 +58,11 @@ typedef struct s_queue
 }			t_queue;
 
 void	bfs_init(t_data *data, t_bfs **bfs);
+bool	bfs_can_move_up(t_bfs *bfs, t_map *map, size_t len_col);
+bool	bfs_can_move_down(t_bfs *bfs, t_map *map, size_t len_col);
+bool	bfs_can_move_right(t_bfs *bfs, t_map *map, size_t len_col);
+bool	bfs_can_move_left(t_bfs *bfs, t_map *map, size_t len_col);
+void	bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x, long long y);
 t_data	*check_map(t_map *map, char const *filename);
 void	check_surrounded_walls(t_data *data, t_map *map);
 void	check_valid_path(t_data *data, t_map *map);
@@ -71,10 +76,13 @@ void	lst_map_addback(t_map **map, t_map *next);
 t_map	*lst_map_last(t_map *map);
 void	lst_map_clear(t_map **map);
 size_t	lst_map_size(t_map *map);
-void	lst_queue_addback(t_queue **queue, t_queue *next);
+void	lst_queue_clear(t_queue **queue);
+void	lst_queue_dequeue(t_queue **queue);
+void	lst_queue_enqueue(t_queue **queue, t_queue *next);
 t_queue	*lst_queue_last(t_queue *queue);
 t_queue	*lst_queue_new(long long x, long long y);
 t_map	*move_map_row(t_map *map, long long y);
 t_map	*read_map(int argc, char const **argv);
 
+size_t	lst_queue_size(t_queue *queue);
 #endif
