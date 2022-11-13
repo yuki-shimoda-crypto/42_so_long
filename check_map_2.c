@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 14:30:55 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/13 15:28:44 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:54:17 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,31 @@
 
 void	search_valid_path(t_data *data, t_map *map)
 {
-	size_t		len_column;
+	size_t		len_col;
 	size_t		len_row;
 	t_bfs		*bfs;
+	t_queue		*b_queue;
+	int			*b_map;
 
-	len_column = ft_strlen(map->line);
+	len_col = ft_strlen(map->line);
 	len_row = lst_map_size(map);
 	bfs_init(data, &bfs);
-	// while (bfs_queue)
-	// {
-	// }
+	b_queue = bfs->bfs_queue;
+	b_map = bfs->bfs_map;
+	while (b_queue)
+	{
+		if (1 < b_queue->y && b_map[len_col * (b_queue->y - 1) + b_queue->x] != 1 && move_map_row)
+
+	}
 
 	size_t		i = 0;
 	size_t		j = 0;
 	while (i < len_row)
 	{
 		j = 0;
-		while (j < len_column)
+		while (j < len_col)
 		{
-			printf("%d", bfs->bfs_map[len_column * i + j]);
+			printf("%d", bfs->bfs_map[len_col * i + j]);
 			j++;
 		}
 		printf("\n");

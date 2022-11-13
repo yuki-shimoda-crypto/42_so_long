@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/13 15:31:20 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:55:48 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_bfs
 	long long		bfs_num_c;
 	long long		bfs_num_e;
 	int				*bfs_map;
+	// char			**bfs_map;
 	struct s_queue	*bfs_queue;
 }			t_bfs;
 
@@ -56,8 +57,6 @@ typedef struct s_queue
 	struct s_queue	*next;
 }			t_queue;
 
-// void	bfs_init(t_data *data,
-// 			long long *bfs_num_c, int **bfs_map, t_queue **bfs_queue);
 void	bfs_init(t_data *data, t_bfs **bfs);
 t_data	*check_map(t_map *map, char const *filename);
 void	check_surrounded_walls(t_data *data, t_map *map);
