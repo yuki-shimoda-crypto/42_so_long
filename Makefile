@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/14 01:11:55 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/14 18:21:54 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS		=	bfs_utils_1.c		\
 				check_map_2.c		\
 				check_map_utils.c	\
 				error_func.c		\
+				ft_mlx.c			\
 				main.c				\
 				lst_map_func.c		\
 				lst_queue_func.c	\
@@ -31,6 +32,9 @@ OBJS		=	$(SRCS:%.c=$(OBJDIR)/%.o)
 OBJDIR		=	obj
 
 LIBFT_DIR	=	libft
+MLX_DIR		=	minilibx-linux
+MLX_FLAGS	=	-lmlx -lXext -lX11
+# MLX_LINUX	=	mlx_Linux
 INCLUDE		=	include
 
 $(OBJDIR)/%.o:%.c
@@ -41,15 +45,20 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			@make -C $(LIBFT_DIR)
-			$(CC) $(OBJS) -L $(LIBFT_DIR) -l ft -o $(NAME)
+			@make -C $(MLX_DIR)
+			$(CC) $(OBJS) -L $(LIBFT_DIR) -l ft -L $(MLX_DIR) $(MLX_FLAGS) -o $(NAME)
 
 clean:		
 			make fclean -C $(LIBFT_DIR)
+			@make clean -C $(MLX_DIR)
 			$(RM) -r $(OBJDIR)
 
 fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
+
+test:
+			@make -C minilibx-linux
 
 .PHONY:		all clean fclean re

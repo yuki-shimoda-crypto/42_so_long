@@ -3,6 +3,7 @@
 ## flow
 1. read_map
 1. check_map
+1. mlx
 
 ## error
 - check_file_name
@@ -14,6 +15,14 @@
 - check_rect
 - check_surrounded_walls
 - check_valid_path
+
+
+## mlx
+1. mlx_init
+1. mlx_new_window
+1. mlx_xpm_file_to_image
+1. mlx_put_image_to_window
+1. mlx_destroy_image
 
 
 

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 02:23:07 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:52:02 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 int	main(int argc, char const *argv[])
 {
 	t_map	*map;
-	// t_data	*data;
+	t_data	*data;
 
 	map = read_map(argc, argv);
-	// data = check_map(map, argv[1]);
-	check_map(map, argv[1]);
+	data = check_map(map, argv[1]);
+	ft_mlx(data);
 	lst_map_clear(&map);
 	return (0);
 }
