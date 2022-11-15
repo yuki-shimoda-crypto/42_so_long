@@ -6,12 +6,16 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 17:49:00 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:43:48 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define SCREEN_HEIGHT 1080
+# define SCREEN_WIDTH 1980
+# define XPM_DIR "xpm/"
 
 # include <fcntl.h>
 # include <unistd.h>
@@ -25,6 +29,7 @@
 typedef struct s_data
 {
 	struct s_map	*map;
+	int				fd;
 	long long		num_zero;
 	long long		num_one;
 	long long		num_c;
@@ -32,8 +37,17 @@ typedef struct s_data
 	long long		num_p;
 	long long		start_x;
 	long long		start_y;
+	long long		map_height;
+	long long		map_width;
 	void			*mlx_ptr;
 	void			*mlx_win_ptr;
+	void			*mlx_space_image;
+	void			*mlx_wall_image;
+	void			*mlx_collectible_image;
+	void			*mlx_exit_image;
+	void			*mlx_player_image;
+	int				pixel_size;
+	char			*pixel_size_str;
 }			t_data;
 
 typedef struct s_map

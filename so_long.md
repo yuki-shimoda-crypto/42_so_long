@@ -31,3 +31,8 @@ f_map_09弾けない
 
 WINDOW_SIZEは固定?
 エスケープの数字はどのようにしらべた？
+
+mlx_initはfree必要なのか
+
+destoroy image
+destroy window
