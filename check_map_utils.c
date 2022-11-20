@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:01:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/13 17:43:06 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/20 02:57:11 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ t_data	*init_data(t_map *map)
 	if (!data)
 		return (NULL);
 	data->map = map;
+	data->map_height = 0;
+	data->map_width = 0;
 	data->num_zero = 0;
 	data->num_one = 0;
 	data->num_c = 0;
@@ -69,5 +71,14 @@ t_data	*init_data(t_map *map)
 	data->num_p = 0;
 	data->start_x = -1;
 	data->start_y = -1;
+	data->mlx_ptr = NULL;
+	data->mlx_win_ptr = NULL;
+	data->mlx_space_image = NULL;
+	data->mlx_wall_image = NULL;
+	data->mlx_collectible_image = NULL;
+	data->mlx_exit_image = NULL;
+	data->mlx_player_image = NULL;
+	data->pixel_size = 0;
+	data->pixel_size_str = NULL;
 	return (data);
 }

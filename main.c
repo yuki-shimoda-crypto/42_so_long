@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/15 15:59:05 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:18:05 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@
 // 	return (0);
 // }
 
-int	main(int argc, char const *argv[])
-{
+int	main(int argc, char const *argv[]) {
 	t_map	*map;
 	t_data	*data;
 
