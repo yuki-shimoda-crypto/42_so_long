@@ -6,13 +6,13 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 23:46:08 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/20 03:22:26 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:40:16 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void write_xpm_player(t_data *data, char *pixel_size)
+void	write_xpm_player(t_data *data, char *pixel_size)
 {
 	long long	i;
 	long long	j;
@@ -22,7 +22,7 @@ void write_xpm_player(t_data *data, char *pixel_size)
 	ft_putstr_fd(pixel_size, data->fd);
 	ft_putstr_fd(" ", data->fd);
 	ft_putstr_fd(pixel_size, data->fd);
-	ft_putstr_fd(" 1 1\",\n\"0 c #333333\",\n/* pixels */\n", data->fd);
+	ft_putstr_fd(" 1 1\",\n\"0 c #FF0000\",\n/* pixels */\n", data->fd);
 	i = 0;
 	while (i < data->pixel_size)
 	{
@@ -40,7 +40,7 @@ void write_xpm_player(t_data *data, char *pixel_size)
 	return ;
 }
 
-void write_xpm_exit(t_data *data, char *pixel_size)
+void	write_xpm_exit(t_data *data, char *pixel_size)
 {
 	long long	i;
 	long long	j;
@@ -50,7 +50,7 @@ void write_xpm_exit(t_data *data, char *pixel_size)
 	ft_putstr_fd(pixel_size, data->fd);
 	ft_putstr_fd(" ", data->fd);
 	ft_putstr_fd(pixel_size, data->fd);
-	ft_putstr_fd(" 1 1\",\n\"0 c #999999\",\n/* pixels */\n", data->fd);
+	ft_putstr_fd(" 1 1\",\n\"0 c #00FF00\",\n/* pixels */\n", data->fd);
 	i = 0;
 	while (i < data->pixel_size)
 	{
@@ -68,7 +68,7 @@ void write_xpm_exit(t_data *data, char *pixel_size)
 	return ;
 }
 
-void write_xpm_collectible(t_data *data, char *pixel_size)
+void	write_xpm_collectible(t_data *data, char *pixel_size)
 {
 	long long	i;
 	long long	j;
@@ -78,7 +78,7 @@ void write_xpm_collectible(t_data *data, char *pixel_size)
 	ft_putstr_fd(pixel_size, data->fd);
 	ft_putstr_fd(" ", data->fd);
 	ft_putstr_fd(pixel_size, data->fd);
-	ft_putstr_fd(" 1 1\",\n\"0 c #777777\",\n/* pixels */\n", data->fd);
+	ft_putstr_fd(" 1 1\",\n\"0 c #0000FF\",\n/* pixels */\n", data->fd);
 	i = 0;
 	while (i < data->pixel_size)
 	{
@@ -96,7 +96,7 @@ void write_xpm_collectible(t_data *data, char *pixel_size)
 	return ;
 }
 
-void write_xpm_wall(t_data *data, char *pixel_size)
+void	write_xpm_wall(t_data *data, char *pixel_size)
 {
 	long long	i;
 	long long	j;
@@ -124,7 +124,7 @@ void write_xpm_wall(t_data *data, char *pixel_size)
 	return ;
 }
 
-void write_xpm_space(t_data *data, char *pixel_size)
+void	write_xpm_space(t_data *data, char *pixel_size)
 {
 	long long	i;
 	long long	j;
@@ -135,6 +135,10 @@ void write_xpm_space(t_data *data, char *pixel_size)
 	ft_putstr_fd(" ", data->fd);
 	ft_putstr_fd(pixel_size, data->fd);
 	ft_putstr_fd(" 1 1\",\n\"0 c #ffffff\",\n/* pixels */\n", data->fd);
+	ft_printf_fd(data->fd, "/* XPM */\nstatic char *str[] = {\n/*columsn rows colors chars-per-pixel */\n\"%s %s 1 1\",\n\"0 c #ffffff\",\n/* pixels */\n", pixel_size, pixel_size);
+	// ft_printf_fd(data->fd, "static char *str[] = {\n\"%s ", pixel_size);
+	// ft_printf_fd(data->fd, "%s 1 1\",\n\"0 c ", pixel_size);
+	// ft_printf_fd(data->fd, "#ffffff\",\n/* pixels */\n");
 	i = 0;
 	while (i < data->pixel_size)
 	{

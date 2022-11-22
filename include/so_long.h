@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/20 04:35:30 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:30:11 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define SCREEN_HEIGHT 1080
 # define SCREEN_WIDTH 1980
 # define XPM_DIR "xpm/"
-# define XPM_EX "xpm/"
+# define XPM_EX ".xpm"
 
 # include <fcntl.h>
 # include <unistd.h>
@@ -97,6 +97,10 @@ void	ft_mlx_init_image_wall(t_data *data);
 void	ft_mlx_init_image_collectible(t_data *data);
 void	ft_mlx_init_image_exit(t_data *data);
 void	ft_mlx_init_image_player(t_data *data);
+ssize_t	ft_put_char_fd(int fd, char c);
+ssize_t	ft_put_str_fd(int fd, char *str);
+ssize_t	ft_put_ptr_fd(int fd, uintptr_t num);
+int		ft_printf_fd(int fd, const char *format, ...);
 t_data	*init_data(t_map *map);
 t_map	*lst_map_new(char *str);
 void	lst_map_addback(t_map **map, t_map *next);

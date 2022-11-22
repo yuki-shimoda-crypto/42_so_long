@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/20 09:39:16 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:14:21 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	put_image(t_data *data, char c, int x, int y)
 	return ;
 }
 
-void	ft_mlx_put_image(t_data *data)
+int	ft_mlx_put_image(t_data *data)
 {
 	int		x;
 	int		y;
@@ -46,7 +46,7 @@ void	ft_mlx_put_image(t_data *data)
 		map = map->next;
 		y++;
 	}
-	return ;
+	return (0);
 }
 
 void	ft_mlx_init_image(t_data *data)
@@ -117,12 +117,21 @@ static void	ft_mlx_init(t_data *d)
 	return ;
 }
 
+// static void	move_map(int keycode, t_data *data)
+// {
+// 	if (keycode == )
+// 		/* code */
+// }
+
+
 void	ft_mlx(t_data *data)
 {
 	ft_mlx_init(data);
 	ft_mlx_make_xpm(data);
 	ft_mlx_init_image(data);
-	mlx_loop_hook(data->mlx_ptr, ft_mlx_put_image(data), data);
+	mlx_loop_hook(data->mlx_ptr, ft_mlx_put_image, data);
+	// mlx_hook(data->mlx_win_ptr, 2, 1L << 0, move_map, data);
+	// mlx_hook(data->mlx_win_ptr, 17, 1L << 2, destroy_mlx, data);
 	// ft_mlx_put_image(data, data->map, data);
 	mlx_loop(data->mlx_ptr);
 	return ;
