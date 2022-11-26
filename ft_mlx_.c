@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/22 17:14:21 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:35:28 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	put_image(t_data *data, char c, int x, int y)
 	return ;
 }
 
-int	ft_mlx_put_image(t_data *data)
+int	ft_mlx_put_image_to_window(t_data *data)
 {
 	int		x;
 	int		y;
@@ -49,13 +49,13 @@ int	ft_mlx_put_image(t_data *data)
 	return (0);
 }
 
-void	ft_mlx_init_image(t_data *data)
+void	ft_mlx_xpm_file_to_image(t_data *data)
 {
-	ft_mlx_init_image_space(data);
-	ft_mlx_init_image_wall(data);
-	ft_mlx_init_image_collectible(data);
-	ft_mlx_init_image_exit(data);
-	ft_mlx_init_image_player(data);
+	ft_mlx_xpm_file_to_image_space(data);
+	ft_mlx_xpm_file_to_image_wall(data);
+	ft_mlx_xpm_file_to_image_collectible(data);
+	ft_mlx_xpm_file_to_image_exit(data);
+	ft_mlx_xpm_file_to_image_player(data);
 	return ;
 }
 
@@ -97,7 +97,7 @@ static void	ft_mlx_make_xpm(t_data *data)
 	return ;
 }
 
-static void	ft_mlx_init(t_data *d)
+static void	ft_mlx_init_new_window(t_data *d)
 {
 	d->map_height = lst_map_size(d->map);
 	d->map_width = ft_strlen(d->map->line);
@@ -117,20 +117,27 @@ static void	ft_mlx_init(t_data *d)
 	return ;
 }
 
-// static void	move_map(int keycode, t_data *data)
-// {
-// 	if (keycode == )
-// 		/* code */
-// }
+static void	move_map(int keycode, t_data *data)
+{
+	if (keycode == )
+		/* code */
+}
+
+int	move_map(int key_num)
+{
+	printf("%d\n", key_num);
+	return (0);
+}
+
 
 
 void	ft_mlx(t_data *data)
 {
-	ft_mlx_init(data);
+	ft_mlx_init_new_window(data);
 	ft_mlx_make_xpm(data);
-	ft_mlx_init_image(data);
-	mlx_loop_hook(data->mlx_ptr, ft_mlx_put_image, data);
-	// mlx_hook(data->mlx_win_ptr, 2, 1L << 0, move_map, data);
+	ft_mlx_xpm_file_to_image(data);
+	mlx_loop_hook(data->mlx_ptr, ft_mlx_put_image_to_window, data);
+	mlx_hook(data->mlx_win_ptr, 2, 1L << 0, move_map, data);
 	// mlx_hook(data->mlx_win_ptr, 17, 1L << 2, destroy_mlx, data);
 	// ft_mlx_put_image(data, data->map, data);
 	mlx_loop(data->mlx_ptr);

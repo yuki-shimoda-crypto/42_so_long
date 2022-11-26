@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/22 17:30:11 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:13:53 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ void	error_func_data_free(const char *str, t_data *data);
 void	error_func_data_bfs_free(const char *str, t_data *data, t_bfs *bfs);
 void	find_start(t_data *data, t_map *map);
 void	ft_mlx(t_data *data);
-void	ft_mlx_init_image_space(t_data *data);
-void	ft_mlx_init_image_wall(t_data *data);
-void	ft_mlx_init_image_collectible(t_data *data);
-void	ft_mlx_init_image_exit(t_data *data);
-void	ft_mlx_init_image_player(t_data *data);
+void	ft_mlx_xpm_file_to_image_space(t_data *data);
+void	ft_mlx_xpm_file_to_image_wall(t_data *data);
+void	ft_mlx_xpm_file_to_image_collectible(t_data *data);
+void	ft_mlx_xpm_file_to_image_exit(t_data *data);
+void	ft_mlx_xpm_file_to_image_player(t_data *data);
 ssize_t	ft_put_char_fd(int fd, char c);
 ssize_t	ft_put_str_fd(int fd, char *str);
 ssize_t	ft_put_ptr_fd(int fd, uintptr_t num);
