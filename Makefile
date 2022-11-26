@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/26 13:08:49 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/26 13:08:49by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS			=	bfs_utils_1.c				\
 					error_func.c				\
 					ft_mlx_.c					\
 					ft_mlx_xpm_file_to_image.c	\
-					ft_mlx_init_image.c			\
 					ft_mlx_write_xpm.c			\
 					ft_printf_fd_.c				\
 					ft_printf_fd_utils.c		\

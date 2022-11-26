@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/26 17:17:47 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:30:00 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,28 +122,28 @@ static void	ft_mlx_init_new_window(t_data *d)
 // 	if (keycode == )
 // 		/* code */
 // }
-// void	move_player(t_data *data, int x, int y)
-// {
-// 	t_map	*map;
+void	move_player(t_data *data, int x, int y)
+{
+	t_map	*map;
 
-// 	map = move_map_row(data->map, data->start_y + y);
-// 	if (map->line[data->start_x + x] != '1')
-// 	{
-// 		if (map->line[data->start_x + x] != '0')
-// 			map->line[data->start_x + x] = 'P';
-// 		else if (map->line[data->start_x + x] == 'C')
-// 		{
-// 			map->line[data->start_x + x] = 'P';
-// 			data->num_c -= 1;
-// 		}
-// 		else if (map->line[data->start_x + x] == 'E')
-// 			map->line[data->start_x + x] = 'P';
-// 		else if (map->line[data->start_x + x] == 'C')
-// 			map->line[data->start_x + x] = 'P';
-// 	}
-// }
+	map = move_map_row(data->map, data->start_y + y);
+	if (map->line[data->start_x + x] != '1')
+	{
+		if (map->line[data->start_x + x] != '0')
+			map->line[data->start_x + x] = 'P';
+		else if (map->line[data->start_x + x] == 'C')
+		{
+			map->line[data->start_x + x] = 'P';
+			data->num_c -= 1;
+		}
+		else if (map->line[data->start_x + x] == 'E')
+			map->line[data->start_x + x] = 'P';
+		else if (map->line[data->start_x + x] == 'C')
+			map->line[data->start_x + x] = 'P';
+	}
+}
 
-// int	move_map(int key_num, t_data *data)
+// int	ft_mlx_move_map(int key_num, t_data *data)
 int	move_map(int key_num)
 {
 	// printf("%d%d%d%d\n", 'a', 'w', 'd', 's');
@@ -167,7 +167,7 @@ void	ft_mlx(t_data *data)
 	ft_mlx_make_xpm(data);
 	ft_mlx_xpm_file_to_image(data);
 	mlx_loop_hook(data->mlx_ptr, ft_mlx_put_image_to_window, data);
-	mlx_hook(data->mlx_win_ptr, 2, 1L << 0, move_map, data);
+	// mlx_hook(data->mlx_win_ptr, 2, 1L << 0, ft_mlx_move_map, data);
 	// mlx_hook(data->mlx_win_ptr, 17, 1L << 2, destroy_mlx, data);
 	// ft_mlx_put_image(data, data->map, data);
 	mlx_loop(data->mlx_ptr);
