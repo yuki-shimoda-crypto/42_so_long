@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/26 13:35:28 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:17:47 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,19 +117,49 @@ static void	ft_mlx_init_new_window(t_data *d)
 	return ;
 }
 
-static void	move_map(int keycode, t_data *data)
-{
-	if (keycode == )
-		/* code */
-}
+// static void	move_map(int keycode, t_data *data)
+// {
+// 	if (keycode == )
+// 		/* code */
+// }
+// void	move_player(t_data *data, int x, int y)
+// {
+// 	t_map	*map;
 
+// 	map = move_map_row(data->map, data->start_y + y);
+// 	if (map->line[data->start_x + x] != '1')
+// 	{
+// 		if (map->line[data->start_x + x] != '0')
+// 			map->line[data->start_x + x] = 'P';
+// 		else if (map->line[data->start_x + x] == 'C')
+// 		{
+// 			map->line[data->start_x + x] = 'P';
+// 			data->num_c -= 1;
+// 		}
+// 		else if (map->line[data->start_x + x] == 'E')
+// 			map->line[data->start_x + x] = 'P';
+// 		else if (map->line[data->start_x + x] == 'C')
+// 			map->line[data->start_x + x] = 'P';
+// 	}
+// }
+
+// int	move_map(int key_num, t_data *data)
 int	move_map(int key_num)
 {
+	// printf("%d%d%d%d\n", 'a', 'w', 'd', 's');
 	printf("%d\n", key_num);
+	// if (key_num == KEY_ESC)
+	// 	ft_mlx_destroy_image(data);
+	// else if (key_num == 'a' || key_num == KEY_LEFT)
+	// 	move_player(data, -1, 0);
+	// else if (key_num == 'w' || key_num == KEY_UP)
+	// 	move_player(data, 0, 1);
+	// else if (key_num == 'd' || key_num == KEY_RIGHT)
+	// 	move_player(data, 1, 0);
+	// else if (key_num == 's' || key_num == KEY_DOWN)
+	// 	move_player(data, 0, -1);
 	return (0);
 }
-
-
 
 void	ft_mlx(t_data *data)
 {
