@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:01:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/20 02:57:11 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:00:24 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ t_data	*init_data(t_map *map)
 	data->mlx_player_image = NULL;
 	data->pixel_size = 0;
 	data->pixel_size_str = NULL;
+	data->step = 0;
 	return (data);
 }

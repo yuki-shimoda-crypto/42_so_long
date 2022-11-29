@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/26 17:30:00 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:11:58 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,24 @@ static void	ft_mlx_init_new_window(t_data *d)
 	return ;
 }
 
-// static void	move_map(int keycode, t_data *data)
-// {
-// 	if (keycode == )
-// 		/* code */
-// }
+int	ft_mlx_destroy(t_data *data)
+{
+	lst_map_clear(&(data->map));
+	mlx_destroy_image(data->mlx_ptr, data->mlx_space_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_wall_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_collectible_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_exit_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
+	mlx_destroy_window(data->mlx_ptr, data->mlx_win_ptr);
+	mlx_destroy_display(data->mlx_ptr);
+	free(data->pixel_size_str);
+	free(data);
+	printf("%s\n", "finish");
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
+
 void	move_player(t_data *data, int x, int y)
 {
 	t_map	*map;
@@ -129,35 +142,40 @@ void	move_player(t_data *data, int x, int y)
 	map = move_map_row(data->map, data->start_y + y);
 	if (map->line[data->start_x + x] != '1')
 	{
-		if (map->line[data->start_x + x] != '0')
-			map->line[data->start_x + x] = 'P';
-		else if (map->line[data->start_x + x] == 'C')
+		if (map->line[data->start_x + x] != 'E')
 		{
+			if (map->line[data->start_x + x] == 'C')
+				data->num_c = data->num_c - 1;
 			map->line[data->start_x + x] = 'P';
-			data->num_c -= 1;
+			map = move_map_row(data->map, data->start_y);
+			map->line[data->start_x] = '0';
+			data->step++;
+			printf("step is %lld\n", data->step);
+			data->start_x += x;
+			data->start_y += y;
 		}
-		else if (map->line[data->start_x + x] == 'E')
-			map->line[data->start_x + x] = 'P';
-		else if (map->line[data->start_x + x] == 'C')
-			map->line[data->start_x + x] = 'P';
+		else if (map->line[data->start_x + x] == 'E' && data->num_c == 0)
+		{
+			data->step++;
+			printf("step is %lld\n", data->step);
+			ft_mlx_destroy(data);
+		}
 	}
 }
 
-// int	ft_mlx_move_map(int key_num, t_data *data)
-int	move_map(int key_num)
+int	ft_mlx_move_map(int key_num, t_data *data)
+// int	move_map(int key_num)
 {
-	// printf("%d%d%d%d\n", 'a', 'w', 'd', 's');
-	printf("%d\n", key_num);
-	// if (key_num == KEY_ESC)
-	// 	ft_mlx_destroy_image(data);
-	// else if (key_num == 'a' || key_num == KEY_LEFT)
-	// 	move_player(data, -1, 0);
-	// else if (key_num == 'w' || key_num == KEY_UP)
-	// 	move_player(data, 0, 1);
-	// else if (key_num == 'd' || key_num == KEY_RIGHT)
-	// 	move_player(data, 1, 0);
-	// else if (key_num == 's' || key_num == KEY_DOWN)
-	// 	move_player(data, 0, -1);
+	if (key_num == KEY_ESC)
+		ft_mlx_destroy(data);
+	else if (key_num == 'a' || key_num == KEY_LEFT)
+		move_player(data, -1, 0);
+	else if (key_num == 'w' || key_num == KEY_UP)
+		move_player(data, 0, -1);
+	else if (key_num == 'd' || key_num == KEY_RIGHT)
+		move_player(data, 1, 0);
+	else if (key_num == 's' || key_num == KEY_DOWN)
+		move_player(data, 0, 1);
 	return (0);
 }
 
@@ -167,9 +185,8 @@ void	ft_mlx(t_data *data)
 	ft_mlx_make_xpm(data);
 	ft_mlx_xpm_file_to_image(data);
 	mlx_loop_hook(data->mlx_ptr, ft_mlx_put_image_to_window, data);
-	// mlx_hook(data->mlx_win_ptr, 2, 1L << 0, ft_mlx_move_map, data);
-	// mlx_hook(data->mlx_win_ptr, 17, 1L << 2, destroy_mlx, data);
-	// ft_mlx_put_image(data, data->map, data);
+	mlx_hook(data->mlx_win_ptr, 2, 1L << 0, ft_mlx_move_map, data);
+	mlx_hook(data->mlx_win_ptr, 17, 1L << 2, ft_mlx_destroy, data);
 	mlx_loop(data->mlx_ptr);
 	return ;
 }

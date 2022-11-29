@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/26 13:49:40 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:59:26 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 	int				pixel_size;
 	char			*pixel_size_str;
 	char			*xpm_name;
+	long long		step;
 	int				fd;
 }			t_data;
 
