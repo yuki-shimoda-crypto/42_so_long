@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf_fd_.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 17:17:54 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/22 17:26:37 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 04:46:02 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static ssize_t	ft_putnbr_base(int fd, ssize_t nbr, char *base)
 	return (nbr_len);
 }
 
-static void	ft_proc_per(int fd, const char **format, ssize_t *printed, va_list *ap)
+static void	ft_proc_per(int fd, const char **format, ssize_t *printed,
+		va_list *ap)
 {
 	(*format)++;
 	if (**format == 'c')

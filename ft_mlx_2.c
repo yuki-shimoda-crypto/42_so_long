@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 04:20:34 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:21:07 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 04:39:45 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,23 @@ int	ft_mlx_move_map(int key_num, t_data *data)
 	return (0);
 }
 
-static void	put_image(t_data *data, char c, int x, int y)
+static void	put_image(t_data *d, char c, int x, int y)
 {
 	if (c == '0')
-		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win_ptr, data->mlx_space_image, data->pixel_size * x, data->pixel_size * y);
+		mlx_put_image_to_window(d->mlx_ptr, d->mlx_win_ptr,
+			d->mlx_space_image, d->pixel_size * x, d->pixel_size * y);
 	else if (c == '1')
-		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win_ptr, data->mlx_wall_image, data->pixel_size * x, data->pixel_size * y);
+		mlx_put_image_to_window(d->mlx_ptr, d->mlx_win_ptr,
+			d->mlx_wall_image, d->pixel_size * x, d->pixel_size * y);
 	else if (c == 'C')
-		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win_ptr, data->mlx_collectible_image, data->pixel_size * x, data->pixel_size * y);
+		mlx_put_image_to_window(d->mlx_ptr, d->mlx_win_ptr,
+			d->mlx_collectible_image, d->pixel_size * x, d->pixel_size * y);
 	else if (c == 'E')
-		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win_ptr, data->mlx_exit_image, data->pixel_size * x, data->pixel_size * y);
+		mlx_put_image_to_window(d->mlx_ptr, d->mlx_win_ptr,
+			d->mlx_exit_image, d->pixel_size * x, d->pixel_size * y);
 	else if (c == 'P')
-		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win_ptr, data->mlx_player_image, data->pixel_size * x, data->pixel_size * y);
+		mlx_put_image_to_window(d->mlx_ptr, d->mlx_win_ptr,
+			d->mlx_player_image, d->pixel_size * x, d->pixel_size * y);
 	return ;
 }
 

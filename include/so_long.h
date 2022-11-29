@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:22:59 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 04:49:19 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@
 # define XPM_EX ".xpm"
 # define XPM_EX ".xpm"
 
+# include "libft.h"
 # include <fcntl.h>
-# include <unistd.h>
+# include <math.h>
+# include "../minilibx-linux/mlx.h"
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <math.h>
-# include <mlx.h>
-# include "libft.h"
+# include <unistd.h>
 
 typedef struct s_data
 {
@@ -62,7 +62,7 @@ typedef struct s_data
 	char			*xpm_name;
 	long long		step;
 	int				fd;
-}			t_data;
+}					t_data;
 
 typedef struct s_map
 {
@@ -70,7 +70,7 @@ typedef struct s_map
 	size_t			len_line;
 	struct s_map	*pre;
 	struct s_map	*next;
-}			t_map;
+}					t_map;
 
 typedef struct s_bfs
 {
@@ -78,62 +78,69 @@ typedef struct s_bfs
 	long long		bfs_num_e;
 	int				*bfs_map;
 	struct s_queue	*bfs_queue;
-}			t_bfs;
+}					t_bfs;
 
 typedef struct s_queue
 {
 	long long		x;
 	long long		y;
 	struct s_queue	*next;
-}			t_queue;
+}					t_queue;
 
-void	bfs_init(t_data *data, t_bfs **bfs);
-bool	bfs_can_move_up(t_bfs *bfs, t_map *map, size_t len_col);
-bool	bfs_can_move_down(t_bfs *bfs, t_map *map, size_t len_col);
-bool	bfs_can_move_right(t_bfs *bfs, t_map *map, size_t len_col);
-bool	bfs_can_move_left(t_bfs *bfs, t_map *map, size_t len_col);
-void	bfs_free(t_bfs *bfs);
-void	bfs_write_one_add_que(t_bfs *bfs, t_data *data,
-			long long x, long long y);
-t_data	*check_map(t_map *map, char const *filename);
-void	check_surrounded_walls(t_data *data, t_map *map);
-void	check_valid_path(t_data *data, t_map *map);
-void	error_func(const char *str);
-void	error_func_map_free(const char *str, t_map *map);
-void	error_func_data_free(const char *str, t_data *data);
-void	error_func_data_bfs_free(const char *str, t_data *data, t_bfs *bfs);
-void	error_func_data_mlx_free(const char *str, t_data *data, int flag);
-void	find_start(t_data *data, t_map *map);
-void	ft_mlx(t_data *data);
-int		ft_mlx_destroy(t_data *data);
-int		ft_mlx_move_map(int key_num, t_data *data);
-int		ft_mlx_put_image_to_window(t_data *data);
-void	ft_mlx_xpm_file_to_image_space(t_data *data);
-void	ft_mlx_xpm_file_to_image_wall(t_data *data);
-void	ft_mlx_xpm_file_to_image_collectible(t_data *data);
-void	ft_mlx_xpm_file_to_image_exit(t_data *data);
-void	ft_mlx_xpm_file_to_image_player(t_data *data);
-ssize_t	ft_put_char_fd(int fd, char c);
-ssize_t	ft_put_str_fd(int fd, char *str);
-ssize_t	ft_put_ptr_fd(int fd, uintptr_t num);
-int		ft_printf_fd(int fd, const char *format, ...);
-void	init_data(t_data **data, t_map *map);
-t_map	*lst_map_new(char *str);
-void	lst_map_addback(t_map **map, t_map *next);
-t_map	*lst_map_last(t_map *map);
-void	lst_map_clear(t_map **map);
-size_t	lst_map_size(t_map *map);
-void	lst_queue_clear(t_queue **queue);
-void	lst_queue_dequeue(t_queue **queue);
-void	lst_queue_enqueue(t_queue **queue, t_queue *next);
-t_queue	*lst_queue_last(t_queue *queue);
-t_queue	*lst_queue_new(long long x, long long y);
-t_map	*move_map_row(t_map *map, long long y);
-t_map	*read_map(int argc, char const **argv);
-void	write_xpm_space_to_file(t_data *data, char *pixel_size, long long i, long long j);
-void	write_xpm_wall_to_file(t_data *data, char *pixel_size, long long i, long long j);
-void	write_xpm_collectible_to_file(t_data *data, char *pixel_size, long long i, long long j);
-void	write_xpm_exit_to_file(t_data *data, char *pixel_size, long long i, long long j);
-void	write_xpm_player_to_file(t_data *data, char *pixel_size, long long i, long long j);
+void				bfs_init(t_data *data, t_bfs **bfs);
+bool				bfs_can_move_up(t_bfs *bfs, t_map *map, size_t len_col);
+bool				bfs_can_move_down(t_bfs *bfs, t_map *map, size_t len_col);
+bool				bfs_can_move_right(t_bfs *bfs, t_map *map, size_t len_col);
+bool				bfs_can_move_left(t_bfs *bfs, t_map *map, size_t len_col);
+void				bfs_free(t_bfs *bfs);
+void				bfs_write_one_add_que(t_bfs *bfs, t_data *data, long long x,
+						long long y);
+t_data				*check_map(t_map *map, char const *filename);
+void				check_surrounded_walls(t_data *data, t_map *map);
+void				check_valid_path(t_data *data, t_map *map);
+void				error_func(const char *str);
+void				error_func_map_free(const char *str, t_map *map);
+void				error_func_data_free(const char *str, t_data *data);
+void				error_func_data_bfs_free(const char *str, t_data *data,
+						t_bfs *bfs);
+void				error_func_data_mlx_free(const char *str, t_data *data,
+						int flag);
+void				find_start(t_data *data, t_map *map);
+void				ft_mlx(t_data *data);
+int					ft_mlx_destroy(t_data *data);
+int					ft_mlx_move_map(int key_num, t_data *data);
+int					ft_mlx_put_image_to_window(t_data *data);
+void				ft_mlx_xpm_file_to_image_space(t_data *data);
+void				ft_mlx_xpm_file_to_image_wall(t_data *data);
+void				ft_mlx_xpm_file_to_image_collectible(t_data *data);
+void				ft_mlx_xpm_file_to_image_exit(t_data *data);
+void				ft_mlx_xpm_file_to_image_player(t_data *data);
+ssize_t				ft_put_char_fd(int fd, char c);
+ssize_t				ft_put_str_fd(int fd, char *str);
+ssize_t				ft_put_ptr_fd(int fd, uintptr_t num);
+int					ft_printf_fd(int fd, const char *format, ...);
+void				init_data(t_data **data, t_map *map);
+t_map				*lst_map_new(char *str);
+void				lst_map_addback(t_map **map, t_map *next);
+t_map				*lst_map_last(t_map *map);
+void				lst_map_clear(t_map **map);
+size_t				lst_map_size(t_map *map);
+void				lst_queue_clear(t_queue **queue);
+void				lst_queue_dequeue(t_queue **queue);
+void				lst_queue_enqueue(t_queue **queue, t_queue *next);
+t_queue				*lst_queue_last(t_queue *queue);
+t_queue				*lst_queue_new(long long x, long long y);
+t_map				*move_map_row(t_map *map, long long y);
+t_map				*read_map(int argc, char const **argv);
+void				write_xpm_space_to_file(t_data *d, char *pixel_size,
+						long long i, long long j);
+void				write_xpm_wall_to_file(t_data *d, char *pixel_size,
+						long long i, long long j);
+void				write_xpm_collectible_to_file(t_data *d, char *pixel_size,
+						long long i, long long j);
+void				write_xpm_exit_to_file(t_data *d, char *pixel_size,
+						long long i, long long j);
+void				write_xpm_player_to_file(t_data *d, char *pixel_size,
+						long long i, long long j);
 
 #endif
