@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/29 15:11:58 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/29 22:45:40 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,13 +127,13 @@ int	ft_mlx_destroy(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
 	mlx_destroy_window(data->mlx_ptr, data->mlx_win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
+	free(data->mlx_ptr);
 	free(data->pixel_size_str);
 	free(data);
 	printf("%s\n", "finish");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
-
 
 void	move_player(t_data *data, int x, int y)
 {

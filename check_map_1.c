@@ -60,14 +60,7 @@ static void	check_component(t_data *data)
 {
 	count_component(data, data->map);
 	if (data->num_e != 1 || data->num_p != 1 || data->num_c < 1)
-	{
-		printf("%lld\n", data->num_zero);
-		printf("%lld\n", data->num_one);
-		printf("%lld\n", data->num_c);
-		printf("%lld\n", data->num_e);
-		printf("%lld\n", data->num_p);
 		error_func_data_free("map component error", data);
-	}
 	return ;
 }
 
@@ -93,7 +86,7 @@ t_data	*check_map(t_map *map, char const *filename)
 {
 	t_data	*data;
 
-	data = init_data(map);
+	init_data(&data, map);
 	if (!data)
 		error_func_map_free("malloc error", map);
 	check_file_name(data, filename);
@@ -101,16 +94,5 @@ t_data	*check_map(t_map *map, char const *filename)
 	check_rect(data, data->map);
 	check_surrounded_walls(data, data->map);
 	check_valid_path(data, data->map);
-	printf("%s\n", "OK");
 	return (data);
 }
-
-// printf("num_zero\t= %lld\n", data->num_zero);
-// printf("num_one\t\t= %lld\n", data->num_one);
-// printf("num_c\t\t= %lld\n", data->num_c);
-// printf("num_e\t\t= %lld\n", data->num_e);
-// printf("num_p\t\t= %lld\n", data->num_p);
-// printf("start_x\t\t= %lld\n", data->start_x);
-// printf("start_y\t\t= %lld\n", data->start_y);
-// t_map	*tmp = move_map_row(data->map, data->start_y);
-// printf("%c\n", tmp->line[data->start_x]);

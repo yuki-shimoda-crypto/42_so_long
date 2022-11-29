@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/26 17:59:26 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 00:25:20 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct s_data
 	void			*mlx_collectible_image;
 	void			*mlx_exit_image;
 	void			*mlx_player_image;
-	int				pixel_size;
 	char			*pixel_size_str;
+	int				pixel_size;
 	char			*xpm_name;
 	long long		step;
 	int				fd;
@@ -107,7 +107,7 @@ ssize_t	ft_put_char_fd(int fd, char c);
 ssize_t	ft_put_str_fd(int fd, char *str);
 ssize_t	ft_put_ptr_fd(int fd, uintptr_t num);
 int		ft_printf_fd(int fd, const char *format, ...);
-t_data	*init_data(t_map *map);
+void	init_data(t_data **data, t_map *map);
 t_map	*lst_map_new(char *str);
 void	lst_map_addback(t_map **map, t_map *next);
 t_map	*lst_map_last(t_map *map);

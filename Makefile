@@ -12,10 +12,11 @@
 
 NAME			=	so_long
 CC				=	cc
-CFLAGS		=	-Wall -Wextra -Werror
-# CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address
+# CC				=	clang
+# CFLAGS		=	-Wall -Wextra -Werror 
+CFLAGS			=	-Wall -Wextra -Werror -g 
 # MLX_FLAGS		=	-lmlx -framework OpenGL -framework AppKit
-MLX_FLAGS_LINUX	=	-L$(MLX_DIR) -lmlx -lXext -lX11 
+MLX_FLAGS_LINUX	=	-L$(MLX_DIR) -lmlx -lXext -lX11
 MLX_DIR			=	minilibx-linux
 
 SRCS			=	bfs_utils_1.c				\
