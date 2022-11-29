@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 02:09:48 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/14 02:13:43 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 02:08:58 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,3 @@ t_queue	*lst_queue_new(long long x, long long y)
 	queue->next = NULL;
 	return (queue);
 }
-
-// size_t	lst_queue_size(t_queue *queue)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (queue)
-// 	{
-// 		i++;
-// 		queue = queue->next;
-// 	}
-// 	return (i);
-// }

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 00:25:20 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 04:22:59 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # define KEY_DOWN 65364
 # define KEY_ESC 65307
 # define XPM_DIR "xpm/"
+# define XPM_EX ".xpm"
+# define MLX_NO_FREE 0
+# define MLX_INIT_FREE 1
+# define MLX_WINDOW_FREE 2
+# define MLX_IMAGE_FREE 3
+# define XPM_EX ".xpm"
 # define XPM_EX ".xpm"
 
 # include <fcntl.h>
@@ -96,8 +102,12 @@ void	error_func(const char *str);
 void	error_func_map_free(const char *str, t_map *map);
 void	error_func_data_free(const char *str, t_data *data);
 void	error_func_data_bfs_free(const char *str, t_data *data, t_bfs *bfs);
+void	error_func_data_mlx_free(const char *str, t_data *data, int flag);
 void	find_start(t_data *data, t_map *map);
 void	ft_mlx(t_data *data);
+int		ft_mlx_destroy(t_data *data);
+int		ft_mlx_move_map(int key_num, t_data *data);
+int		ft_mlx_put_image_to_window(t_data *data);
 void	ft_mlx_xpm_file_to_image_space(t_data *data);
 void	ft_mlx_xpm_file_to_image_wall(t_data *data);
 void	ft_mlx_xpm_file_to_image_collectible(t_data *data);
@@ -120,10 +130,10 @@ t_queue	*lst_queue_last(t_queue *queue);
 t_queue	*lst_queue_new(long long x, long long y);
 t_map	*move_map_row(t_map *map, long long y);
 t_map	*read_map(int argc, char const **argv);
-void	write_xpm_space(t_data *data, char *pixel_size);
-void	write_xpm_wall(t_data *data, char *pixel_size);
-void	write_xpm_collectible(t_data *data, char *pixel_size);
-void	write_xpm_exit(t_data *data, char *pixel_size);
-void	write_xpm_player(t_data *data, char *pixel_size);
+void	write_xpm_space_to_file(t_data *data, char *pixel_size, long long i, long long j);
+void	write_xpm_wall_to_file(t_data *data, char *pixel_size, long long i, long long j);
+void	write_xpm_collectible_to_file(t_data *data, char *pixel_size, long long i, long long j);
+void	write_xpm_exit_to_file(t_data *data, char *pixel_size, long long i, long long j);
+void	write_xpm_player_to_file(t_data *data, char *pixel_size, long long i, long long j);
 
 #endif

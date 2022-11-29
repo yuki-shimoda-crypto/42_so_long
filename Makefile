@@ -25,7 +25,8 @@ SRCS			=	bfs_utils_1.c				\
 					check_map_2.c				\
 					check_map_utils.c			\
 					error_func.c				\
-					ft_mlx_.c					\
+					ft_mlx_1.c					\
+					ft_mlx_2.c					\
 					ft_mlx_xpm_file_to_image.c	\
 					ft_mlx_write_xpm.c			\
 					ft_printf_fd_.c				\
