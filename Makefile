@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 NAME			=	so_long
-# CC				=	cc
-CC				=	clang
+CC				=	cc
+# CC				=	clang
 CFLAGS			=	-Wall -Wextra -Werror 
 # CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g
 # MLX_FLAGS		=	-lmlx -framework OpenGL -framework AppKit
