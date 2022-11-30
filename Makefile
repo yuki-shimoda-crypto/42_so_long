@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/26 13:08:49by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/30 22:55:49 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME			=	so_long
 CC				=	cc
 # CC				=	clang
 CFLAGS			=	-Wall -Wextra -Werror 
-# CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g
 # MLX_FLAGS		=	-lmlx -framework OpenGL -framework AppKit
 MLX_FLAGS_LINUX	=	-L$(MLX_DIR) -lmlx -lXext -lX11
 MLX_DIR			=	minilibx-linux
