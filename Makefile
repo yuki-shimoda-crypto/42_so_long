@@ -19,22 +19,22 @@ CFLAGS			=	-Wall -Wextra -Werror
 MLX_FLAGS_LINUX	=	-L$(MLX_DIR) -lmlx -lXext -lX11
 MLX_DIR			=	minilibx-linux
 
-SRCS			=	bfs_utils_1.c				\
-					bfs_utils_2.c				\
-					check_map_1.c				\
-					check_map_2.c				\
-					check_map_utils.c			\
-					error_func.c				\
-					ft_mlx_1.c					\
-					ft_mlx_2.c					\
-					ft_mlx_xpm_file_to_image.c	\
-					ft_mlx_write_xpm.c			\
-					ft_printf_fd_.c				\
-					ft_printf_fd_utils.c		\
-					main.c						\
-					lst_map_func.c				\
-					lst_queue_func.c			\
-					read_map.c
+SRCS			=	src/bfs_utils_1.c				\
+					src/bfs_utils_2.c				\
+					src/check_map_1.c				\
+					src/check_map_2.c				\
+					src/check_map_utils.c			\
+					src/error_func.c				\
+					src/ft_mlx_1.c					\
+					src/ft_mlx_2.c					\
+					src/ft_mlx_xpm_file_to_image.c	\
+					src/ft_mlx_write_xpm.c			\
+					src/ft_printf_fd_.c				\
+					src/ft_printf_fd_utils.c		\
+					src/main.c						\
+					src/lst_map_func.c				\
+					src/lst_queue_func.c			\
+					src/read_map.c
 
 OBJS			=	$(SRCS:%.c=$(OBJDIR)/%.o)
 OBJDIR			=	obj
