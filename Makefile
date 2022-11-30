@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 NAME			=	so_long
-CC				=	cc
-# CC				=	clang
-# CFLAGS		=	-Wall -Wextra -Werror 
-CFLAGS			=	-Wall -Wextra -Werror -g 
+# CC				=	cc
+CC				=	clang
+CFLAGS			=	-Wall -Wextra -Werror 
+# CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g
 # MLX_FLAGS		=	-lmlx -framework OpenGL -framework AppKit
 MLX_FLAGS_LINUX	=	-L$(MLX_DIR) -lmlx -lXext -lX11
 MLX_DIR			=	minilibx-linux
@@ -62,8 +62,5 @@ fclean:			clean
 				$(RM) $(NAME)
 
 re:				fclean all
-
-test:
-				@make -C minilibx-linux
 
 .PHONY:			all clean fclean re

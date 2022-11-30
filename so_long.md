@@ -36,3 +36,8 @@ mlx_initはfree必要なのか
 
 destoroy image
 destroy window
+
+11111
+1PEC1
+11111
+弾けない

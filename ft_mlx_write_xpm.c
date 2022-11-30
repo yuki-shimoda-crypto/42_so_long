@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 23:46:08 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:43:30 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:48:10 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	write_xpm_collectible_to_file(t_data *d, char *pixel_size, long long i,
 		error_func_data_mlx_free("open error", d, MLX_WINDOW_FREE);
 	ft_printf_fd(d->fd, "static char *str[] = {\n\"%s ", pixel_size);
 	ft_printf_fd(d->fd, "%s 1 1\",\n\"0 c ", pixel_size);
-	ft_printf_fd(d->fd, "#0000FF\",\n/* pixels */\n");
+	ft_printf_fd(d->fd, "#FFD900\",\n/* pixels */\n");
 	while (i < d->pixel_size)
 	{
 		write(d->fd, "\"", 1);
