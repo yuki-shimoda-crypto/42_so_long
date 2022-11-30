@@ -24,8 +24,6 @@
 1. mlx_put_image_to_window
 1. mlx_destroy_image
 
-
-
 error 出力2
 f_map_09弾けない
 
@@ -41,3 +39,5 @@ destroy window
 1PEC1
 11111
 弾けない
+
+jisキーからUSkeyへ対応させる
