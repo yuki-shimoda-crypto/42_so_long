@@ -6,18 +6,15 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/12/02 07:38:34 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/12/02 09:59:58 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	so_long
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror 
-# MLX_FLAGS		=	 -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 MLX_FLAGS		=	 -lmlx -framework OpenGL -framework AppKit
 # MLX_FLAGS_LINUX	=	-L$(MLX_DIR) -lmlx -lXext -lX11
-# MLX_DIR			=	minilibx_opengl_20191021	
-# MLX_DIR			=	minilibx_mms_20200219	
 MLX_DIR		=	minilibx-linux
 
 SRCS			=	src/bfs_utils_1.c				\

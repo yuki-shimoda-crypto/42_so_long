@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/12/02 07:53:42 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:09:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@
 // # define KEY_UP 65362
 // # define KEY_RIGHT 65363
 // # define KEY_DOWN 65364
+// # define KEY_ESC 65307
 // # define KEY_W 'w'
 // # define KEY_A 'a'
 // # define KEY_S 's'
 // # define KEY_D 'd'
-// # define KEY_ESC 65307
 # define KEY_LEFT 123
 # define KEY_UP 126
 # define KEY_RIGHT 124
 # define KEY_DOWN 125
+# define KEY_ESC 53
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
-# define KEY_ESC 53
 # define XPM_DIR "xpm/"
 # define MLX_NO_FREE 0
 # define MLX_INIT_FREE 1
@@ -43,8 +43,6 @@
 # include <fcntl.h>
 # include <math.h>
 # include <mlx.h>
-// # include "../minilibx_mms_20200219/mlx.h"
-// # include "../minilibx_opengl_20191021/mlx.h"
 // # include "../minilibx-linux/mlx.h"
 # include <stdbool.h>
 # include <stdio.h>

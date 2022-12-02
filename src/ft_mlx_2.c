@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 04:20:34 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/12/02 07:55:47 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:24:55 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,37 @@
 
 int	ft_mlx_destroy(t_data *data)
 {
-	// mlx_destroy_image(data->mlx_ptr, data->mlx_space_image);
-	// mlx_destroy_image(data->mlx_ptr, data->mlx_wall_image);
-	// mlx_destroy_image(data->mlx_ptr, data->mlx_collectible_image);
-	// mlx_destroy_image(data->mlx_ptr, data->mlx_exit_image);
-	// mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_space_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_wall_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_collectible_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_exit_image);
+	mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
 	mlx_destroy_window(data->mlx_ptr, data->mlx_win_ptr);
-	// mlx_destroy_display(data->mlx_ptr);
-	// lst_map_clear(&(data->map));
-	// free(data->mlx_ptr);
-	// free(data->pixel_size_str);
-	// free(data);
+	lst_map_clear(&(data->map));
+	free(data->pixel_size_str);
+	free(data);
 	printf("%s\n", "finish");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
+
+// int	ft_mlx_destroy(t_data *data)
+// {
+// 	mlx_destroy_image(data->mlx_ptr, data->mlx_space_image);
+// 	mlx_destroy_image(data->mlx_ptr, data->mlx_wall_image);
+// 	mlx_destroy_image(data->mlx_ptr, data->mlx_collectible_image);
+// 	mlx_destroy_image(data->mlx_ptr, data->mlx_exit_image);
+// 	mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
+// 	mlx_destroy_window(data->mlx_ptr, data->mlx_win_ptr);
+// 	mlx_destroy_display(data->mlx_ptr);
+// 	lst_map_clear(&(data->map));
+// 	free(data->pixel_size_str);
+// 	free(data->mlx_ptr);
+// 	free(data);
+// 	printf("%s\n", "finish");
+// 	exit(EXIT_SUCCESS);
+// 	return (0);
+// }
 
 static void	move_player(t_data *data, int x, int y)
 {
