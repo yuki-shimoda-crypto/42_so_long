@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:01:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:35:46 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 19:13:26 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	find_start(t_data *data, t_map *map)
 			{
 				data->start_x = x;
 				data->start_y = y;
-				break ;
+				return ;
+				// break ;
 			}
 			x++;
 		}
@@ -57,6 +58,7 @@ void	init_data(t_data **data, t_map *map)
 	*data = malloc(sizeof(t_data));
 	if (!*data)
 		return ;
+	ft_memset(data, 0, sizeof(t_data));
 	(*data)->map = map;
 	(*data)->map_height = 0;
 	(*data)->map_width = 0;

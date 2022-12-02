@@ -45,3 +45,21 @@ jisキーからUSkeyへ対応させる
 
 freeについて
 vprintf
+
+
+
+
+header fileの書き方
+shell uname
+macの時のheaderfile
+
+find . -type f -name '*.c' | xargs cflow --format=posix >>flow
+find . -type f -name '*.c' | xargs cflow --format=posix --reverse >>rflow
+htags . --suggest --call-tree=flow --callee-tree=rflow
+open HTML/index.html
+
+ps aux | less
+
+dprintf
+
+expose
