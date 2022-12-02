@@ -41,3 +41,7 @@ destroy window
 弾けない
 
 jisキーからUSkeyへ対応させる
+
+
+freeについて
+vprintf

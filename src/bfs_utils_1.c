@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:03:44 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 02:05:47 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:33:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	bfs_init(t_data *data, t_bfs **bfs)
 
 	*bfs = malloc(sizeof(t_bfs));
 	if (!*bfs)
-		error_func_data_free("malloc error", data);
+		error_func_data_free("Error\nmalloc error", data);
 	len_col = ft_strlen(data->map->line);
 	len_row = lst_map_size(data->map);
 	(*bfs)->bfs_num_c = data->num_c;
@@ -95,7 +95,7 @@ void	bfs_init(t_data *data, t_bfs **bfs)
 		free((*bfs)->bfs_queue);
 		free((*bfs)->bfs_map);
 		free(bfs);
-		error_func_data_free("malloc error", data);
+		error_func_data_free("Error\nmalloc error", data);
 	}
 	(*bfs)->bfs_map[len_col * (*bfs)->bfs_queue->y + (*bfs)->bfs_queue->x] = 1;
 	return ;

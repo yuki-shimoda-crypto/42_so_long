@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx_.c                                          :+:      :+:    :+:   */
+/*   ft_mlx_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:23:52 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:33:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ static void	ft_mlx_init_new_window(t_data *d)
 		d->pixel_size = 1;
 	d->mlx_ptr = mlx_init();
 	if (!d->mlx_ptr)
-		error_func_data_mlx_free("malloc error", d, MLX_NO_FREE);
+		error_func_data_mlx_free("Error\nmalloc error", d, MLX_NO_FREE);
 	d->mlx_win_ptr = mlx_new_window(d->mlx_ptr, d->pixel_size * d->map_width,
 			d->pixel_size * d->map_height, "so_long");
 	if (!d->mlx_win_ptr)
-		error_func_data_mlx_free("malloc error", d, MLX_INIT_FREE);
+		error_func_data_mlx_free("Error\nmalloc error", d, MLX_INIT_FREE);
 	d->pixel_size_str = ft_ltoa(d->pixel_size);
 	if (!d->pixel_size_str)
-		error_func_data_mlx_free("malloc error", d, MLX_WINDOW_FREE);
+		error_func_data_mlx_free("Error\nmalloc error", d, MLX_WINDOW_FREE);
 	return ;
 }
 

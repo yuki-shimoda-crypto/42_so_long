@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:10:03 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 23:26:21 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:33:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	bfs_write_one_add_que(t_bfs *bfs, t_data *data,
 			bfs->bfs_num_c -= 1;
 		queue_next = lst_queue_new(x, y);
 		if (!queue_next)
-			error_func_data_bfs_free("malloc error", data, bfs);
+			error_func_data_bfs_free("Error\nmalloc error", data, bfs);
 		lst_queue_enqueue(&bfs->bfs_queue, queue_next);
 	}
 	return ;

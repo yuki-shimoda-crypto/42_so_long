@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 14:30:55 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 01:29:55 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:38:27 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	search_valid_path(t_data *data, t_map *map)
 		lst_queue_dequeue(&bfs->bfs_queue);
 	}
 	if (bfs->bfs_num_e != 0)
-		error_func_data_bfs_free("Error, not exist valid path", data, bfs);
+		error_func_data_bfs_free("Error\nnot exist valid path", data, bfs);
 	if (bfs->bfs_num_c != 0)
-		error_func_data_bfs_free("Error, cannot	collect c", data, bfs);
+		error_func_data_bfs_free("Error\ncannot	collect c", data, bfs);
 	bfs_free(bfs);
 	return ;
 }
@@ -55,13 +55,13 @@ void	check_surrounded_walls(t_data *data, t_map *map)
 	t_map	*tmp;
 
 	if (!map || !map->line)
-		error_func_data_free("map error", data);
+		error_func_data_free("Error\nmap error", data);
 	len = ft_strlen(map->line);
 	tmp = map;
 	while (tmp)
 	{
 		if (tmp->line[0] != '1' || tmp->line[len - 1] != '1')
-			error_func_data_free("Error, map is not walled in", data);
+			error_func_data_free("Error\nmap is not walled in", data);
 		tmp = tmp->next;
 	}
 	tmp = lst_map_last(map);
@@ -69,7 +69,7 @@ void	check_surrounded_walls(t_data *data, t_map *map)
 	while (i < len)
 	{
 		if (map->line[i] != '1' || tmp->line[i] != '1')
-			error_func_data_free("Error, map is not walled in", data);
+			error_func_data_free("Error\nmap is not walled in", data);
 		i++;
 	}
 	return ;

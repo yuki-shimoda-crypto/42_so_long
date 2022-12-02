@@ -3,6 +3,7 @@
 		"so_long.h": "c",
 		"mlx_int.h": "c",
 		"mlx.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"iterator": "c"
 	}
 }

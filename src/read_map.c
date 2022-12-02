@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:22:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/11 23:55:27 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:34:51 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_map	*input_lst(int fd)
 			line[i] = '\0';
 		next = lst_map_new(line);
 		if (!next)
-			error_func_map_free("malloc error", map);
+			error_func_map_free("Error\nmalloc error", map);
 		lst_map_addback(&map, next);
 	}
 	return (map);
@@ -44,13 +44,13 @@ t_map	*read_map(int argc, char const **argv)
 	t_map	*map;
 
 	if (argc != 2)
-		error_func("arg error");
+		error_func("Error\narg error");
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		error_func("open error");
+		error_func("Error\nopen error");
 	map = input_lst(fd);
 	close(fd);
 	if (!map)
-		error_func("blank map, malloc error or read error");
+		error_func("Error\nblank map, malloc error or read error");
 	return (map);
 }

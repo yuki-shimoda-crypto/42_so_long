@@ -17,12 +17,12 @@ static void	check_rect(t_data *data, t_map *map)
 	size_t	len;
 
 	if (!map || !map->line)
-		error_func_data_free("map error", data);
+		error_func_data_free("Error\nmap error", data);
 	len = ft_strlen(map->line);
 	while (map)
 	{
 		if (len != ft_strlen(map->line))
-			error_func_data_free("Error, map is not a rectangle", data);
+			error_func_data_free("Error\nmap is not a rectangle", data);
 		map = map->next;
 	}
 	return ;
@@ -48,7 +48,7 @@ static void	count_component(t_data *data, t_map *map)
 			else if (map->line[i] == 'P')
 				data->num_p = data->num_p + 1;
 			else
-				error_func_data_free("map component error", data);
+				error_func_data_free("Error\nmap component error", data);
 			i++;
 		}
 		map = map->next;
@@ -60,7 +60,7 @@ static void	check_component(t_data *data)
 {
 	count_component(data, data->map);
 	if (data->num_e != 1 || data->num_p != 1 || data->num_c < 1)
-		error_func_data_free("map component error", data);
+		error_func_data_free("Error\nmap component error", data);
 	return ;
 }
 
@@ -70,15 +70,15 @@ static void	check_file_name(t_data *data, char const *filename)
 
 	len = ft_strlen(filename);
 	if (len < 4)
-		error_func_data_free("map name error", data);
+		error_func_data_free("Error\nmap name error", data);
 	if (filename[len - 1] != 'r')
-		error_func_data_free("map name error", data);
+		error_func_data_free("Error\nmap name error", data);
 	if (filename[len - 2] != 'e')
-		error_func_data_free("map name error", data);
+		error_func_data_free("Error\nmap name error", data);
 	if (filename[len - 3] != 'b')
-		error_func_data_free("map name error", data);
+		error_func_data_free("Error\nmap name error", data);
 	if (filename[len - 4] != '.')
-		error_func_data_free("map name error", data);
+		error_func_data_free("Error\nmap name error", data);
 	return ;
 }
 
@@ -88,7 +88,7 @@ t_data	*check_map(t_map *map, char const *filename)
 
 	init_data(&data, map);
 	if (!data)
-		error_func_map_free("malloc error", map);
+		error_func_map_free("Error\nmalloc error", map);
 	check_file_name(data, filename);
 	check_component(data);
 	check_rect(data, data->map);
