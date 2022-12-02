@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 04:20:34 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:39:45 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 07:55:47 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	ft_mlx_destroy(t_data *data)
 {
-	mlx_destroy_image(data->mlx_ptr, data->mlx_space_image);
-	mlx_destroy_image(data->mlx_ptr, data->mlx_wall_image);
-	mlx_destroy_image(data->mlx_ptr, data->mlx_collectible_image);
-	mlx_destroy_image(data->mlx_ptr, data->mlx_exit_image);
-	mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
+	// mlx_destroy_image(data->mlx_ptr, data->mlx_space_image);
+	// mlx_destroy_image(data->mlx_ptr, data->mlx_wall_image);
+	// mlx_destroy_image(data->mlx_ptr, data->mlx_collectible_image);
+	// mlx_destroy_image(data->mlx_ptr, data->mlx_exit_image);
+	// mlx_destroy_image(data->mlx_ptr, data->mlx_player_image);
 	mlx_destroy_window(data->mlx_ptr, data->mlx_win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	lst_map_clear(&(data->map));
-	free(data->mlx_ptr);
-	free(data->pixel_size_str);
-	free(data);
+	// mlx_destroy_display(data->mlx_ptr);
+	// lst_map_clear(&(data->map));
+	// free(data->mlx_ptr);
+	// free(data->pixel_size_str);
+	// free(data);
 	printf("%s\n", "finish");
 	exit(EXIT_SUCCESS);
 	return (0);
@@ -62,13 +62,13 @@ int	ft_mlx_move_map(int key_num, t_data *data)
 {
 	if (key_num == KEY_ESC)
 		ft_mlx_destroy(data);
-	else if (key_num == 'a' || key_num == KEY_LEFT)
+	else if (key_num == KEY_A || key_num == KEY_LEFT)
 		move_player(data, -1, 0);
-	else if (key_num == 'w' || key_num == KEY_UP)
+	else if (key_num == KEY_W || key_num == KEY_UP)
 		move_player(data, 0, -1);
-	else if (key_num == 'd' || key_num == KEY_RIGHT)
+	else if (key_num == KEY_D || key_num == KEY_RIGHT)
 		move_player(data, 1, 0);
-	else if (key_num == 's' || key_num == KEY_DOWN)
+	else if (key_num == KEY_S || key_num == KEY_DOWN)
 		move_player(data, 0, 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:04:29 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 04:34:30 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 07:41:52 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char const *argv[])
 	return (0);
 }
 
-// __attribute__((destructor)) static void destructor()
-// {
-// 	system("leaks -q so_long");
-// }
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q so_long");
+}

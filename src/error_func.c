@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:49:50 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 03:03:47 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 07:35:34 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	error_func_data_mlx_free(const char *str, t_data *data, int flag)
 		mlx_destroy_window(data->mlx_ptr, data->mlx_win_ptr);
 	if (flag >= MLX_INIT_FREE)
 	{
-		mlx_destroy_display(data->mlx_ptr);
+		// mlx_destroy_display(data->mlx_ptr);
 		free(data->mlx_ptr);
 	}
 	lst_map_clear(&(data->map));
