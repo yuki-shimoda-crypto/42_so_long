@@ -1,0 +1,6 @@
+static char *str[] = {
+"1 1 1 1",
+"0 c #00FF00",
+/* pixels */
+"0",
+};
