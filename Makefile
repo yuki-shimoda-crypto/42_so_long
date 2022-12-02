@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/12/02 09:59:58 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/12/02 20:39:26 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,11 @@ OBJS			=	$(SRCS:%.c=$(OBJDIR)/%.o)
 OBJDIR			=	obj
 
 LIBFT_DIR		=	libft
-INCLUDE			=	include
+INCLUDE			=	-I include
 
 $(OBJDIR)/%.o:%.c
 				@mkdir -p $(@D);
-				$(CC) -c $< -o $@ $(CFLAGS) -I $(INCLUDE)
+				$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 all:			$(NAME)
 

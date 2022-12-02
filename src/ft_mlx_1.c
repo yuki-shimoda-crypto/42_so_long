@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:29:22 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/12/02 15:33:18 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:54:39 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static void	ft_mlx_make_xpm(t_data *data)
 
 	i = 0;
 	j = 0;
-	write_xpm_space_to_file(data, data->pixel_size_str, i, j);
-	write_xpm_wall_to_file(data, data->pixel_size_str, i, j);
-	write_xpm_collectible_to_file(data, data->pixel_size_str, i, j);
-	write_xpm_exit_to_file(data, data->pixel_size_str, i, j);
-	write_xpm_player_to_file(data, data->pixel_size_str, i, j);
+	write_xpm_space_to_file(data, data->pixel_size_str, 0, 0);
+	write_xpm_wall_to_file(data, data->pixel_size_str, 0, 0);
+	write_xpm_collectible_to_file(data, data->pixel_size_str, 0, 0);
+	write_xpm_exit_to_file(data, data->pixel_size_str, 0, 0);
+	write_xpm_player_to_file(data, data->pixel_size_str, 0, 0);
 	return ;
 }
 

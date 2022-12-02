@@ -50,6 +50,7 @@ vprintf
 
 
 header fileの書き方
+ifeq
 shell uname
 macの時のheaderfile
 
@@ -63,3 +64,15 @@ ps aux | less
 dprintf
 
 expose
+
+nm -u obj/*.o
+error exit
+
+ファイルを読んでから、ファイルの名前のチェックをするということが気になった。
+
+エラーを出すなら使い方を出せ
+
+errornoはmalloc errorの時などに番号が変わる。
+
+x11のマニュアルを見たりして、調べる
+x_event, 
