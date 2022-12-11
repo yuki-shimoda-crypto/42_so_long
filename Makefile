@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/12/11 15:49:41 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/12/11 16:08:05 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ ifeq ($(OS), Linux)
 MLX_FLAGS		=	-L$(MLX_DIR) -lmlx -lXext -lX11
 else
 MLX_FLAGS		=	 -lmlx -framework OpenGL -framework AppKit
+# MLX_FLAGS		=	 -lmlx -L . -lX11 -lXext -L /usr/X11R6/lib -framework OpenGL
 endif
 
 $(OBJDIR)/%.o:%.c
