@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 04:20:34 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/12/02 10:24:55 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/11 15:55:34 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_mlx_destroy(t_data *data)
 	lst_map_clear(&(data->map));
 	free(data->pixel_size_str);
 	free(data);
-	printf("%s\n", "finish");
+	ft_printf("%s\n", "finish");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -41,7 +41,7 @@ int	ft_mlx_destroy(t_data *data)
 // 	free(data->pixel_size_str);
 // 	free(data->mlx_ptr);
 // 	free(data);
-// 	printf("%s\n", "finish");
+// 	ft_printf("%s\n", "finish");
 // 	exit(EXIT_SUCCESS);
 // 	return (0);
 // }
@@ -61,14 +61,14 @@ static void	move_player(t_data *data, int x, int y)
 			map = move_map_row(data->map, data->start_y);
 			map->line[data->start_x] = '0';
 			data->step++;
-			printf("step is %lld\n", data->step);
+			ft_printf("step is %lld\n", data->step);
 			data->start_x += x;
 			data->start_y += y;
 		}
 		else if (map->line[data->start_x + x] == 'E' && data->num_c == 0)
 		{
 			data->step++;
-			printf("step is %lld\n", data->step);
+			ft_printf("step is %lld\n", data->step);
 			ft_mlx_destroy(data);
 		}
 	}
