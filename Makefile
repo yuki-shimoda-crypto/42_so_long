@@ -6,13 +6,14 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 22:19:36 by yshimoda          #+#    #+#              #
-#    Updated: 2022/12/11 16:08:05 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/12/11 17:05:26 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	so_long
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror 
+CFLAGS_DEBUG	=	-g -fsanitize=address -fsanitize=leak -fsanitize=undefined
 MLX_DIR			=	minilibx-linux
 
 SRCS			=	src/bfs_utils_1.c				\
@@ -75,7 +76,7 @@ OBJDIR			=	obj
 LIBFT_DIR		=	libft
 INCLUDE			=	-I include -I $(MLX_DIR)
 
-OS			=	$(shell uname)
+OS				=	$(shell uname)
 
 ifeq ($(OS), Linux)
 MLX_FLAGS		=	-L$(MLX_DIR) -lmlx -lXext -lX11
@@ -117,7 +118,6 @@ play:			all
 				echo -e "\n"; done
 				@echo "----finish----"
 
-
 PHONY			+=	error
 error:			all
 				for error_map in $(MAP_FALSE) ; do	\
@@ -125,5 +125,10 @@ error:			all
 				./$(NAME) $$error_map;				\
 				echo -e "\n"; done
 				@echo "----finish----"
+
+PHONY			+=	debug
+debug:			CFLAGS += $(CFLAGS_DEBUG)
+debug:			fclean
+debug:			all
 
 .PHONY:			$(PHONY)
