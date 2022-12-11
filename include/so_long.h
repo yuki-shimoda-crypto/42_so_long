@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:59:24 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/12/11 15:54:37 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:08:57 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define SCREEN_HEIGHT 1080
 # define SCREEN_WIDTH 1920
 
-# define CLUSTER
+// # define CLUSTER
 
 # ifdef CLUSTER
 #  define KEY_LEFT 123
